@@ -7,19 +7,19 @@
      
         $cache    =   new simpleFileCache();
         
-        var_dump( $cache->get( "test" ) );
-        
         if( !$cache->get( "test" ) )
         {
          
-            $cache->set( "test", "bladiebla" );
+            $cache->set( "test", "demo" );
             
         }
-        else {
+        else
+        {
             
             echo $cache->get( "test" );
             
         }
+        
      
     }
     catch( Exception $e )

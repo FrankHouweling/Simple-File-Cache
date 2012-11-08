@@ -41,6 +41,7 @@ class simpleFileCache
         }
         
         $this->setSalt( $salt );
+        $this->updateCache();
         
     }
     
@@ -107,6 +108,68 @@ class simpleFileCache
             
         }
         
+        
+    }
+    
+    /**
+     * Remove an item from the cache
+     * @param string $name The identifier for the item removed from the cache
+     */
+    function remove( $name )
+    {
+        
+        if( file_exists( $this->cacheDir . md5( $name . $this->salt ) . ".dat" ) )
+        {   //  Removing the file is only needed if it exists...
+        
+            if( !unlink( $this->cacheDir . md5( $name . $this->salt ) . ".dat" ) )
+            {
+                
+                throw new Exception( "Could not delete the cache file, is <i>" . 
+                        $this->cacheDir . "</i> readable?" );
+                
+            }
+            
+            // Remove from XML file
+            
+            // Load simpleXML for reading the cache data file.        
+            $dom = new DOMDocument;
+
+            // Load the File as a DOM document
+
+            if( !$dom->loadXML( file_get_contents( $this->cacheDir . "cache.xml" ) ) )
+            {
+
+                throw new Exception( "Could not load xml cache store file." );
+
+            }
+
+            $xpath = new DOMXPath($dom);
+            $els = $xpath->query("//file");
+
+            foreach( $els as $file) {
+                
+                // If the Cache file is old...
+                if( $file->getElementsByTagName( "filename" )->item(0)->nodeValue 
+                        == md5( $name . $this->salt ) . ".dat" )
+                {
+
+                    // Remove item from the XML document
+                    $dom->documentElement->removeChild( $file );
+                }
+
+            }
+
+            if( !@$dom->save( $this->cacheDir . "cache.xml" ) )
+            {
+
+                throw new Exception( "Could not write the <i>" .  $this->cacheDir . 
+                        "cache.xml" . "</i> file." );
+
+            }
+            
+        }
+        
+        return true;
         
     }
     
