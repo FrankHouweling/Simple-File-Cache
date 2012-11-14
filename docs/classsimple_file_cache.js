@@ -1,10 +1,10 @@
 var classsimple_file_cache =
 [
-    [ "__construct", "classsimple_file_cache.html#aa65628d8fbebe491dfd8acfbd162db0a", null ],
-    [ "get", "classsimple_file_cache.html#aad6df61f0be738ca4d5d22e8e820489e", null ],
-    [ "remove", "classsimple_file_cache.html#a764ed131e4e1fd13e6179d9bac13d185", null ],
-    [ "set", "classsimple_file_cache.html#a5833dfb6492f991dd3b886dddb98b96f", null ],
-    [ "setDir", "classsimple_file_cache.html#ab0438ca61c06359504e875a7ebf48b9e", null ],
-    [ "setSalt", "classsimple_file_cache.html#a175465190a6385d366dbc3b54b3ce499", null ],
-    [ "updateCache", "classsimple_file_cache.html#a5567d3f165008c5f5ac3ae20d160d7d1", null ]
+    [ "__construct", "classsimple_file_cache.html#ac743fbbd200adc9a85bedc44e2940e66", null ],
+    [ "get", "classsimple_file_cache.html#af5ea6a083ddb07beb8a30dd32e309ceb", null ],
+    [ "remove", "classsimple_file_cache.html#aebff052f548656a86f5b9e0048a5c325", null ],
+    [ "set", "classsimple_file_cache.html#a9545f6dcdb0bbe82e13359ef419546ec", null ],
+    [ "setDir", "classsimple_file_cache.html#aed71e16a428798436a684b6fb5a12b25", null ],
+    [ "setSalt", "classsimple_file_cache.html#a2b2953c58f648b49d02b531c530f41e1", null ],
+    [ "updateCache", "classsimple_file_cache.html#ad6acfb5152ca3fb717c1021de0179c6e", null ]
 ];

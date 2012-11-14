@@ -1,9 +1,10 @@
 <?php
 
 /**
+ * SimpleFileCache
  * File I/O based PHP cache system.
  * @author Frank Houweling <houweling.frank@gmail.com>
- * @verson 1.1
+ * @version 1.1
  */
 
 class simpleFileCache
@@ -188,6 +189,9 @@ class simpleFileCache
         
         if( !empty($name) && !empty( $value ) )
         {
+            
+            // Remove old values for the name.
+            $this->remove( $name );
             
             // Write in the data file
             $handler    =   fopen( $this->cacheDir . md5( $name . $this->salt ) . ".dat", "x" );
